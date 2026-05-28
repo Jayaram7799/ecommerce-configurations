@@ -4,6 +4,12 @@ server:
 spring:
   application:
     name: userservice
+  boot:
+    admin:
+      client:
+        url: http://localhost:1111   # Admin Server
+        instance:
+          prefer-ip: true
 
   datasource:
     url: jdbc:mysql://localhost:3306/BtmEcommerceCustomer?createDatabaseIfNotExist=true
