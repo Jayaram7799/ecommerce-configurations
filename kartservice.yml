@@ -4,6 +4,12 @@ server:
 spring:
   application:
     name: kartservice
+  boot:
+    admin:
+      client:
+        url: http://localhost:1111   # Admin Server
+        instance:
+          prefer-ip: true
   
 
   data:
