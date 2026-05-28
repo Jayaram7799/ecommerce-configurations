@@ -6,7 +6,7 @@ spring:
     name: authenticationservice
 
   datasource:
-    url: jdbc:mysql://host.docker.internal:3306/BtmAuthUser?createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:3306/BtmAuthUser?createDatabaseIfNotExist=true
     username: root
     password: admin
 
@@ -18,7 +18,7 @@ spring:
   boot:
     admin:
       client:
-        url: http://host.docker.internal:1111
+        url: http://localhost:1111
         instance:
           service-base-url: http://authenticationservice:8082
           prefer-ip: false
@@ -36,7 +36,7 @@ management:
 eureka:
   client:
     service-url:
-      defaultZone: http://host.docker.internal:8761/eureka
+      defaultZone: http://localhost:8761/eureka
     register-with-eureka: true
     fetch-registry: true
 
