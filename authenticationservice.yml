@@ -20,8 +20,8 @@ spring:
       client:
         url: http://localhost:1111
         instance:
-          service-base-url: http://authenticationservice:8082
-          prefer-ip: false
+          service-base-url: http://localhost:8082
+         
 
 management:
   endpoints:
@@ -34,15 +34,14 @@ management:
       show-details: always
 
 eureka:
+  instance:
+     prefer-ip-adress: true
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
-    register-with-eureka: true
-    fetch-registry: true
+    
 
-  instance:
-    hostname: authenticationservice
-    prefer-ip-address: false
+  
 
 jwt:
   secret: ${JWT_SECRET:357638792F423F4428472B4B6250655368566D597133743677397A2443264629}
