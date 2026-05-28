@@ -4,6 +4,12 @@ server:
 spring:
   application:
     name: ApiGateway
+  boot:
+    admin:
+      client:
+        url: http://localhost:1111   # Admin Server
+        instance:
+          prefer-ip: true
 
   main:
     web-application-type: reactive
