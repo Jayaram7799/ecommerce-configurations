@@ -10,6 +10,7 @@ spring:
         url: http://localhost:1111   # Admin Server
         instance:
           prefer-ip: true
+
   
 
   data:
@@ -40,7 +41,46 @@ eureka:
 
   instance:
     prefer-ip-address: true
+resilience4j:
+  circuitbreaker:
+    instances:
+      productService:
 
+        # Last 20 calls are considered
+        sliding-window-type: COUNT_BASED
+        sliding-window-size: 20
+
+        # Need at least 10 calls before calculating failure rate
+        minimum-number-of-calls: 10
+
+        # Open circuit if 50% calls fail
+        failure-rate-threshold: 50
+
+        # Open circuit if 60% calls are slow
+        slow-call-rate-threshold: 60
+
+        # Consider call slow if > 3 seconds
+        slow-call-duration-threshold: 3s
+
+        # Stay open for 30 seconds
+        wait-duration-in-open-state: 30s
+
+        # Allow 5 test calls in HALF_OPEN state
+        permitted-number-of-calls-in-half-open-state: 5
+
+        # Automatically move OPEN -> HALF_OPEN
+        automatic-transition-from-open-to-half-open-enabled: true
+
+        # Record these exceptions as failures
+        record-exceptions:
+          - feign.RetryableException
+          - java.net.ConnectException
+          - java.net.SocketTimeoutException
+          - org.springframework.web.client.ResourceAccessException
+
+        # Ignore business exceptions
+        ignore-exceptions:
+          - in.btm.exceptions.ProductNotFoundException
 jwt:
   secret: ${JWT_SECRET:357638792F423F4428472B4B6250655368566D597133743677397A2443264629}
   expiration: 86400000
