@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: authenticationservice
+    name: AUTHENTICATIONSERVICE
 
   datasource:
     url: jdbc:mysql://localhost:3306/BtmAuthUser?createDatabaseIfNotExist=true
