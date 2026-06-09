@@ -33,12 +33,12 @@ spring:
             - Path=/auth/**
 
         - id: user-service
-          uri: lb://USERSERVICE
+          uri: lb://UserService
           predicates:
            - Path=/api/users/**,/api/addresses/**
 
         - id: product-service
-          uri: lb://PRODUCT-SERVICE
+          uri: lb://ProductService
           predicates:
             - Path=/api/products/**,/api/categories/**
         - id: kart-service
