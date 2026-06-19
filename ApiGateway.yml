@@ -42,7 +42,7 @@ spring:
           predicates:
             - Path=/api/products/**,/api/categories/**
         - id: kart-service
-          uri: lb://kartservice
+          uri: lb://CartService
           predicates:
             - Path=/cart/**
          
