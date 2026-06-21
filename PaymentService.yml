@@ -56,5 +56,5 @@ logging:
 
 razorpay:
   key:
-    id: ${RAZORPAY_KEY_ID}
-    secret: ${RAZORPAY_KEY_SECRET}
+    id: rzp_test_SCQRqu0qW6vEYz
+    secret: H0eOfEdY4AMOqxnrmNUifX1y
