@@ -45,6 +45,15 @@ spring:
           uri: lb://CartService
           predicates:
             - Path=/cart/**
+        - id: order-service
+          uri: lb://OrderService
+          predicates:
+            - Path=/api/orders/**
+
+        - id: payment-service
+          uri: lb://PaymentService
+          predicates:
+            - Path=/api/payments/**
          
 
       globalcors:
