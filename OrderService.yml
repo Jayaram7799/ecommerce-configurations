@@ -19,7 +19,7 @@ spring:
         format_sql: true
 
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: 13.232.120.164:9092
 
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
