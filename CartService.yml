@@ -19,7 +19,7 @@ spring:
 
   data:
     redis:
-      host: localhost
+      host: 13.232.120.164
       port: 6379
       timeout: 6000
 
