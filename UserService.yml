@@ -7,7 +7,7 @@ spring:
   boot:
     admin:
       client:
-        url: http://localhost:1111   # Admin Server
+        url: http://43.205.178.253:1111   # Admin Server
         instance:
           prefer-ip: false
 
@@ -28,7 +28,7 @@ eureka:
 
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://43.205.178.253:8761/eureka/
 
 management:
   endpoints:
