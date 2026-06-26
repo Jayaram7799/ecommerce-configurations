@@ -24,16 +24,15 @@ spring:
  
   data:
     redis:
-      host: 13.232.120.164
+      host: 15.206.66.91
       port: 6379
 
   
   boot:
     admin:
       client:
-        url: http://localhost:1111
-        instance:
-          service-base-url: http://localhost:8083
+        url: http://43.205.178.253:1111
+        
 
 
 eureka:
@@ -41,7 +40,7 @@ eureka:
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://43.205.178.253:8761/eureka/
 
 
 management:
