@@ -6,7 +6,7 @@ spring:
     name: OrderService
 
   datasource:
-    url: jdbc:mysql://localhost:3306/order_db?createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:3306/order_db2?createDatabaseIfNotExist=true
     username: root
     password: admin
 
@@ -21,12 +21,26 @@ spring:
   kafka:
     bootstrap-servers: localhost:9092
 
+    # ============================================================
+    # PRODUCER
+    # ============================================================
+
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 
       properties:
         spring.json.add.type.headers: true
+
+        # Production reliability
+        acks: all
+        enable.idempotence: true
+        retries: 10
+        retry.backoff.ms: 1000
+
+    # ============================================================
+    # CONSUMER
+    # ============================================================
 
     consumer:
       group-id: order-group-v2
@@ -36,13 +50,28 @@ spring:
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
 
       properties:
-        spring.json.trusted.packages: "*"
+        spring.json.trusted.packages: "in.btm.kafka.event"
         spring.json.use.type.headers: true
+
+    # ============================================================
+    # LISTENER
+    # ============================================================
+
+    listener:
+      ack-mode: record
+
+# ================================================================
+# EUREKA
+# ================================================================
 
 eureka:
   client:
     service-url:
       defaultZone: http://43.205.178.253:8761/eureka
+
+# ================================================================
+# ACTUATOR
+# ================================================================
 
 management:
   endpoints:
@@ -50,7 +79,20 @@ management:
       exposure:
         include: "*"
 
+# ================================================================
+# LOGGING
+# ================================================================
+
 logging:
   level:
     org.springframework.kafka: INFO
     in.btm: DEBUG
+
+# ================================================================
+# OUTBOX PUBLISHER
+# ================================================================
+
+outbox:
+  publisher:
+    batch-size: 100
+    fixed-delay: 5000
