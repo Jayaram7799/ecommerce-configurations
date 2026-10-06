@@ -13,7 +13,7 @@ spring:
   boot:
     admin:
       client:
-        url: http://43.205.178.253:1111
+        url: http://localhost:1111
         instance:
           prefer-ip: true
 
@@ -30,7 +30,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://43.205.178.253:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
     register-with-eureka: true
     fetch-registry: true
 
