@@ -9,19 +9,39 @@ spring:
     url: jdbc:mysql://localhost:3306/BtmAuthUser?createDatabaseIfNotExist=true
     username: root
     password: admin
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
 
+  # Spring Boot Admin
   boot:
     admin:
       client:
         url: http://localhost:1111
-        
-         
 
+  # Gmail SMTP
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: gogulajayaram123@gmail.com
+    password: yekf dvzb dheg vuge
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+
+# Actuator
 management:
   endpoints:
     web:
@@ -32,16 +52,16 @@ management:
     health:
       show-details: always
 
+# Eureka
 eureka:
   instance:
-     prefer-ip-adress: true
+    prefer-ip-address: true
+
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
-    
 
-  
-
+# JWT
 jwt:
-  secret: ${JWT_SECRET:357638792F423F4428472B4B6250655368566D597133743677397A2443264629}
+  secret: ${JWT_SECRET:357638792F423F4428472B4B6250655368566D597133397A2443264629}
   expiration: 86400000
