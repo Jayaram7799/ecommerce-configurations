@@ -7,14 +7,14 @@ spring:
   boot:
     admin:
       client:
-        url: http://localhost:1111   # Admin Server
+        url: http://admin-server:1111   # Admin Server
         instance:
-          prefer-ip: false
+          prefer-ip: true
 
   datasource:
-    url: jdbc:mysql://localhost:3306/BtmEcommerceCustomer?createDatabaseIfNotExist=true
-    username: root
-    password: admin
+    url: jdbc:mysql://ecommerce-mysql.czu8c2wqe246.ap-south-1.rds.amazonaws.com:3306/BtmEcommerceCustomer?createDatabaseIfNotExist=true
+    username: admin
+    password: Admin123
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
@@ -28,7 +28,7 @@ eureka:
 
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://serviceregistry:8761/eureka/
 
 management:
   endpoints:
