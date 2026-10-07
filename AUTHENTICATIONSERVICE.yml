@@ -59,7 +59,7 @@ eureka:
 
   client:
     service-url:
-      defaultZone: http://service-registry:8761/eureka
+      defaultZone: http://serviceregistry:8761/eureka
 app:
   frontend-url: http://localhost:5173
 
