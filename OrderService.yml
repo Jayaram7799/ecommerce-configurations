@@ -67,7 +67,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://43.205.178.253:8761/eureka
+      defaultZone: http://localhost:8761/eureka
 
 # ================================================================
 # ACTUATOR
