@@ -37,7 +37,7 @@ spring:
           '[/**]':
             allowedOrigins:
               - "https://main.d1gezrhyyl9lz2.amplifyapp.com"
-              - "https://dwnccnjdwck00.cloudfront.net"
+             
             allowedMethods:
               - GET
               - POST
