@@ -61,7 +61,7 @@ eureka:
     service-url:
       defaultZone: http://serviceregistry:8761/eureka
 app:
-  frontend-url: http://localhost:5173
+  frontend-url: https://main.d1gezrhyyl9lz2.amplifyapp.com
 
 # JWT
 jwt:
