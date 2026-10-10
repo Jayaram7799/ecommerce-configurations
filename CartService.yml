@@ -28,11 +28,11 @@ spring:
       WRITE_DATES_AS_TIMESTAMPS: false
 
 eureka:
+  instance:
+    prefer-ip-address: true
   client:
     service-url:
       defaultZone: http://serviceregistry:8761/eureka/
-    register-with-eureka: true
-    fetch-registry: true
 
   instance:
     prefer-ip-address: true
